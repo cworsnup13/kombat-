@@ -15,10 +15,57 @@
 //= require_tree .
 
 $(document).ready(function()
-{   
+{
+//Click on Leaderboards to view Player   
 $(".leaderboard-player").click(function()
 {
    var ident = this.id;
    var index = ident.indexOf("-");
    window.location.href = "/players/"+ident.substr(index+1);
-});});
+});
+
+var activeOneSet = true;
+var activeTwoSet = false; 
+$("#playerOneSelect").click(function()
+{
+  
+  activeOneSet = true;
+  activeTwoSet = false;
+});
+
+$("#playerTwoSelect").click(function()
+{
+  activeOneSet = false;
+  activeTwoSet = true;
+});
+
+$(".clickableSelect").click(function()
+{
+	var ident = this.id;
+   var index = ident.indexOf("-");
+	ident = ident.substr(index+1);
+
+   var source = this.src;
+	if(activeOneSet)
+   {   	
+		$("#playerOneSelectImg").attr("src", source);
+      $("#playerOneSelectText").text(ident);
+      $("#playerOneSelect").css("background-color", "transparent");
+ 		$("#playerOneSelect").css("opacity", "1.0");
+	}
+   else
+	{
+		$("#playerTwoSelectImg").attr("src", source);
+		$("#playerTwoSelectText").text(ident);
+		$("#playerTwoSelect").css("background-color", "transparent");
+		$("#playerTwoSelect").css("opacity", "1.0");
+	}	
+});
+
+$("#goGameButton").click(function()
+{
+	
+	window.location.href = "/players";
+});
+
+});

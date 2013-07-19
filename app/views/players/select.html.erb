@@ -1,29 +1,38 @@
 <div align="center">
 <h1>Table Tennis Kombat</h1>
-<h2>Leader Board</h2> 
+<h2>Select Players</h2> 
 
-<div style="float: left;">
-Choose Player
+<div id = "playerOneSelect">
+<img id = "playerOneSelectImg" src="">
+<p id = "playerOneSelectText">Select Player One</p> 
 </div>
 
-<div style="float: right;">
-Choose Player
+<div id = "playerTwoSelect">
+<img id = "playerTwoSelectImg" src="" > 
+<p id = "playerTwoSelectText"> Select Player Two</p> 
 </div>
 
 <div style="width: 900px">
+<table id="choosePlayers">
+<%ctr = 0%>
 <% @players.sort_by { |player| player.name }.each do |player| %>
-  <div class="player">
-  <img style="width: 96px; height: 96px;" src="<%= player.avatar %>" alt="<%= player.name %> avatar" />
+<% if ctr==0 %>
+<tr>
+<% end %>
+<td>
+<img style="width: 96px; height: 96px;" src="<%= player.avatar %>" id="select-<%=player.name%>" alt="<%= player.name %> avatar" class="clickableSelect" />
   <br />
   <%= player.name %>
-  </div>
-<% end %> 
+</td>
+<% ctr+=1 %>
+<%if ctr == 4 %>
+</tr>
+<%ctr = 0%>
+<%end%>
+<% end %>
+</table> 
 </div>
 
 <br />
-<form method="post" action="/game">
-<input type="text" id="player_one_id" />
-<input type="text" id="player_two_id" />
-<input type="submit" value="ok" />
-</form>
+<button id="goGameButton" type="button" action"/players">Back To LeaderBoard</button>
 </div>
