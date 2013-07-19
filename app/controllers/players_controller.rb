@@ -19,7 +19,7 @@ class PlayersController < ApplicationController
     end
   end
 
-  # POST /game
+  # GET /game/1/2
   def game 
     @player_one = Player.find(params[:player_one_id])
     @player_two = Player.find(params[:player_two_id])
@@ -48,8 +48,6 @@ class PlayersController < ApplicationController
  
     if save
       respond_to do |format|
-        
-        format.html { redirect_to "/winner/#{get_winner(@player_one, @player_two)}.id" }
         format.html { redirect_to Player.find(@winner), notice: "#{@Player.find(@winner).name} IS THE WINNER!" }
       end
     else
