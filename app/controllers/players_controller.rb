@@ -35,7 +35,16 @@ class PlayersController < ApplicationController
     @player_two = Player.find(params[:player_two_id])
     @players = [@player_one, @player_two]
  
-    @player_one.current_score = params[:player_one_score]
+    def get_winner(player_one, player_two)
+      if player_one.current_score > player_two.current_score
+        player_one.id
+      elsif player_two.current_score > player_one.current_score
+        player_two.id
+      else -1
+      end
+    end
+
+    @player_one.current_score = params[:player_one_score] 
     @player_two.current_score = params[:player_two_score]
     @winner = get_winner(@player_one, @player_two)
     @players.each do |player|
@@ -44,11 +53,10 @@ class PlayersController < ApplicationController
         player.cumulative_wins += 1
       end
     end
-
  
-    if save
+    if @player_one.save && @player_two.save
       respond_to do |format|
-        format.html { redirect_to Player.find(@winner), notice: "#{@Player.find(@winner).name} IS THE WINNER!" }
+        format.html { redirect_to Player.find(@winner), notice: "#{Player.find(@winner).name} IS THE WINNER!" }
       end
     else
       
