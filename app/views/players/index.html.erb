@@ -6,7 +6,7 @@
   <tr>
     <th>Avatar</th>
     <th>Name</th>
-    <th>Cumulative wins</th>
+    <th>W-L</th>
     <th>Total games</th>
     <th></th>
     <th></th>
@@ -15,11 +15,13 @@
 
 <% @players.each do |player| %>
   <tr class="leaderboard-player" id="player-<%=player.id%>">
-    <td><img width="128" height="128" src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
-    <td><%= player.name%></td>
-    <td><%= player.cumulative_wins %></td>
-    <td><%= player.total_games %></td>
-  </tr>
+
+    <td class="leader-img"><img width="128" height="128" src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
+    <td class="leader-name"><%= player.name%></td>
+    <td class="leader-wins"><%= player.cumulative_wins %>-<%=player.total_games-player.cumulative_wins%></td>
+    <td class="leader-games"><%= player.total_games %></td> 
+
+</tr>
 <% end %>
 </table>
 
