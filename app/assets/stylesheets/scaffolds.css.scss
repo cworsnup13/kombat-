@@ -138,14 +138,29 @@ color:white;
 font-weight:bold;
 }
 
+#charcterSpace
+{
+	width:100px;
+   height:100px;
+	position:relative;
+	left:300px;
+	top:100px;
+}
+
 .spaceNew
 {
 position:relative;
-left:330px;
+left:0px;
 top: 50px;
+float:left;
 //background-color:grey;
 //opacity:0.5;
 width: 330px;
+}
+
+.spaceNew input
+{
+ width:200px;
 }
 
 .spaceNew label

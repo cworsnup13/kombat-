@@ -95,4 +95,12 @@ $("#goGameButton").click(function()
 	window.location.href = "/game/"+ $("#playerOneSelectImg").attr("name") +"/"+ $("#playerTwoSelectImg").attr("name");
 });
 
+$(".newClickable").click(function()
+{
+	var source = this.src;
+	$(".newClickable").css("border","0px");
+	$(this).css("border", "2px solid yellow");
+	$("#player_avatar").attr("value", source);
+});
+
 });
