@@ -29,6 +29,37 @@ class PlayersController < ApplicationController
     end
   end
 
+  # POST /end_game
+  def end_game
+    @player_one = Player.find(params[:player_one_id])
+    @player_two = Player.find(params[:player_two_id])
+    @players = [@player_one, @player_two]
+ 
+    @player_one.current_score = params[:player_one_score]
+    @player_two.current_score = params[:player_two_score]
+    @winner = get_winner(@player_one, @player_two)
+    @players.each do |player|
+      player.total_games += 1
+      if @winner == player.id
+        player.cumulative_wins += 1
+      end
+    end
+
+ 
+    if save
+      respond_to do |format|
+        
+        format.html { redirect_to "/winner/#{get_winner(@player_one, @player_two)}.id" }
+        format.html { redirect_to Player.find(@winner), notice: "#{@Player.find(@winner).name} IS THE WINNER!" }
+      end
+    else
+      
+    end 
+
+  end
+
+    
+
   # GET /players/1
   # GET /players/1.json
   def show

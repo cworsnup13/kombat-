@@ -2,6 +2,7 @@ Kombat::Application.routes.draw do
   resources :players 
   get 'select', to: 'players#select' 
   get 'game/:player_one_id/:player_two_id', to: 'players#game'
+  post '/end_game', to: 'players#end_game'
  
   # The priority is based upon order of creation:
   # first created -> highest priority.
