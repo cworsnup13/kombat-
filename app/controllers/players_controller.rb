@@ -10,6 +10,15 @@ class PlayersController < ApplicationController
     end
   end
 
+  # GET /players/select
+  def select
+    @players = Player.all
+
+    respond_to do |format|
+      format.html # select.html.erb
+    end
+  end
+
   # GET /players/1
   # GET /players/1.json
   def show
@@ -80,4 +89,5 @@ class PlayersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

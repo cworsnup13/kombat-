@@ -1,6 +1,6 @@
 Kombat::Application.routes.draw do
-  resources :players
-
+  resources :players 
+  get 'select', to: 'players#select' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,25 +2,25 @@
 <h1>Table Tennis Kombat</h1>
 <h2>Leader Board</h2> 
 
-<div style=">
+<div style="float: left;">
+Choose Player
 </div>
 
-<div class="select_player_two">
+<div style="float: right;">
+Choose Player
 </div>
 
-
+<div style="align: center;">
+<% @players.sort_by { |player| player.name }.each do |player| %>
+  <div class="player">
+  <img src="<%= player.avatar %>" alt="<%= player.name %> avatar" />
+  <br />
+  <%= player.name %>
+  </div>
+<% end %> 
+</div>
 
 <table>
-  <tr>
-    <th>Avatar</th>
-    <th>Name</th>
-    <th>Cumulative wins</th>
-    <th>Total games</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @players.sort_by { |player| player.cumulative_wins }.each do |player| %>
   <tr>
     <td><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
@@ -35,8 +35,5 @@
 </table>
 
 <br />
-
-<%= link_to 'New Player', new_player_path %>
-<%= link_to 'New Game', new_game_path %>
 
 </div>
