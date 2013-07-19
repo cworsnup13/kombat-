@@ -10,12 +10,22 @@ class PlayersController < ApplicationController
     end
   end
 
-  # GET /players/select
+  # GET /select
   def select
     @players = Player.all
 
     respond_to do |format|
       format.html # select.html.erb
+    end
+  end
+
+  # POST /game
+  def game 
+    @player_one = Player.find(params[:player_one_id])
+    @player_two = Player.find(params[:player_two_id])
+
+    respond_to do |format|
+      format.html # game.html.erb
     end
   end
 
