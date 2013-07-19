@@ -20,7 +20,7 @@
 <tr>
 <% end %>
 <td>
-<img style="width: 96px; height: 96px;" src="<%= player.avatar %>" id="select-<%=player.name%>" alt="<%= player.name %> avatar" class="clickableSelect" />
+<img style="width: 96px; height: 96px;" src="<%= player.avatar %>" id="select-<%=player.name%>" alt="<%= player.name %> avatar" class="clickableSelect" name=<%=player.id%> />
   <br />
   <%= player.name %>
 </td>
@@ -34,5 +34,8 @@
 </div>
 
 <br />
-<button id="goGameButton" type="button" action"/players">Back To LeaderBoard</button>
+<span>
+<button id="goLeaderButton" type="button" action"/players">Back To LeaderBoard</button>
+<button id="goGameButton" type="button" action"/players">FIGHT!!</button>
+</span>
 </div>

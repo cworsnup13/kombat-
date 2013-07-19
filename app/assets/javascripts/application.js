@@ -26,6 +26,15 @@ $(".leaderboard-player").click(function()
 
 var activeOneSet = true;
 var activeTwoSet = false; 
+var selected1="";
+var selected2="";
+
+function alreadyChosen(id)
+{
+alert("Cannot Choose "+id+". Player is already selected!")
+return;
+}
+
 $("#playerOneSelect").click(function()
 {
   
@@ -44,28 +53,46 @@ $(".clickableSelect").click(function()
 	var ident = this.id;
    var index = ident.indexOf("-");
 	ident = ident.substr(index+1);
+   idNumber = this.name;
 
    var source = this.src;
+   if(ident == selected1 || ident == selected2)
+	{
+		if(activeOneSet)		
+		alreadyChosen(ident);
+		else
+		alreadyChosen(ident);
+		return;
+	}
 	if(activeOneSet)
    {   	
 		$("#playerOneSelectImg").attr("src", source);
+		$("#playerOneSelectImg").attr("name", idNumber);
       $("#playerOneSelectText").text(ident);
       $("#playerOneSelect").css("background-color", "transparent");
  		$("#playerOneSelect").css("opacity", "1.0");
+		selected1 = ident;
 	}
    else
 	{
 		$("#playerTwoSelectImg").attr("src", source);
+		$("#playerTwoSelectImg").attr("name", idNumber);
 		$("#playerTwoSelectText").text(ident);
 		$("#playerTwoSelect").css("background-color", "transparent");
 		$("#playerTwoSelect").css("opacity", "1.0");
+		selected2 = ident;	
 	}	
 });
+$("#goLeaderButton").click(function()
+{	
+	window.location.href = "/players";
+});
+
 
 $("#goGameButton").click(function()
 {
 	
-	window.location.href = "/players";
+	window.location.href = "/game/"+ $("#playerOneSelectImg").attr("name") +"/"+ $("#playerTwoSelectImg").attr("name");
 });
 
 });
