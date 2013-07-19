@@ -49,10 +49,13 @@ class PlayersController < ApplicationController
     @winner = get_winner(@player_one, @player_two)
     @players.each do |player|
       player.total_games += 1
+      player.current_score = 0
       if @winner == player.id
         player.cumulative_wins += 1
       end
     end
+
+
  
     if @player_one.save && @player_two.save
       respond_to do |format|
