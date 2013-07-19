@@ -36,6 +36,7 @@
   <b>Total games:</b>
   <%= @player.total_games %>
 </p>
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<br />
+<%= link_to 'Edit Player', edit_player_path(@player) %>
+<br /><br />
+<%= link_to 'Back to Leaderboards', players_path %>
