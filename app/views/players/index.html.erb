@@ -11,7 +11,7 @@
     <th>Total games</th>
   </tr>
 <%alt = -1%>
-<% @players.sort { |player1, player2| player2.name <=> player1.name}.each do |player| %>
+<% @players.sort { |player1, player2| player2.cumulative_wins <=> player1.cumulative_wins}.each do |player| %>
   <tr class="leaderboard-player<%=alt%>" id="player-<%=player.id%>">
 
     <td class="leader-img"><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
@@ -28,12 +28,10 @@
 <br />
 
 <div width="250"
-<div style="align: left;">
-<%= link_to 'New Player', new_player_path, :id=>"newPlayerButton" %>
-</div>
-<div style="align: right;"
-<%= link_to 'New Game', '/select', :id=>"newGameButton" %> 
-</div>
+<span style="align: right;">
+<button type="button" id="newplayerbutton">New Player</button>
+<button type="button" id="newgamebutton">New Game - Select PLayers</button>
+</span>
 </div>
 
 </div>

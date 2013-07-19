@@ -10,6 +10,14 @@ class PlayersController < ApplicationController
     end
   end
 
+  # GET /winner/1
+  def winner
+    @winner = Player.find(params[:winner_id])
+    respond_to do |format|
+      format.html #winner.html.erb
+    end
+  end
+
   # GET /select
   def select
     @players = Player.all
@@ -59,7 +67,7 @@ class PlayersController < ApplicationController
  
     if @player_one.save && @player_two.save
       respond_to do |format|
-        format.html { redirect_to Player.find(@winner), notice: "#{Player.find(@winner).name} IS THE WINNER!" }
+        format.html { redirect_to "/winner/#{@winner}", notice: "#{Player.find(@winner).name} IS THE WINNER!" }
       end
     else
       

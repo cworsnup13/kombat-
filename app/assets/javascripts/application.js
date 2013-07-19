@@ -103,4 +103,14 @@ $(".newClickable").click(function()
 	$("#player_avatar").attr("value", source);
 });
 
+$("#newgamebutton").click(function()
+{
+window.location.href = "/select";   
+});
+
+$("#newplayerbutton").click(function()
+{
+window.location.href = "/players/new";
+});
+
 });
