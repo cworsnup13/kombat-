@@ -4,6 +4,6 @@ class AddDefaultValuesToPlayers < ActiveRecord::Migration
     change_column_default(:Players, :current_score, 0)
     change_column_default(:Players, :avatar, "http://localhost:3000/assets/default_avatar.png")
     change_column_default(:Players, :total_games, 0)
-
+    change_column_default(:Players, :skill, 1)
   end
 end
