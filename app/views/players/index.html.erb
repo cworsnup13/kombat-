@@ -6,22 +6,22 @@
   <tr>
     <th>Avatar</th>
     <th>Name</th>
+<th></th>
     <th>W-L</th>
     <th>Total games</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
+<%alt = -1%>
+<% @players.sort { |player1, player2| player2.name <=> player1.name}.each do |player| %>
+  <tr class="leaderboard-player<%=alt%>" id="player-<%=player.id%>">
 
-<% @players.each do |player| %>
-  <tr class="leaderboard-player" id="player-<%=player.id%>">
-
-    <td class="leader-img"><img width="128" height="128" src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
+    <td class="leader-img"><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
     <td class="leader-name"><%= player.name%></td>
-    <td class="leader-wins"><%= player.cumulative_wins %>-<%=player.total_games-player.cumulative_wins%></td>
+	 <td class="spacer"></td>
+    <td class="leader-wins"><%= player.cumulative_wins %>-<%=player.total_games - player.cumulative_wins%></td>
     <td class="leader-games"><%= player.total_games %></td> 
 
 </tr>
+<% alt *= -1%>
 <% end %>
 </table>
 

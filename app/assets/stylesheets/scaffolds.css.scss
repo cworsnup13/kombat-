@@ -1,7 +1,11 @@
 body {
   background-color: #000000;
+  background-image:url('http://i35.photobucket.com/albums/d159/JohnnyCage221/Sprite%20Tutorial/SpriteBackground.png');
+  background-repeat:no-repeat;
+background-position:0px 0px;
+background-size:1000px;
+background-attachment:fixed;
   color: red;
-  
   font-size: 13px;
   line-height: 18px;
 }
@@ -16,8 +20,14 @@ td
 {
 border-top: 2px solid red;
 border-bottom: 2px solid red;
-margin:0px;
-padding:0px;
+border-right: 0px solid red;
+border-left: 0px solid red;
+}
+
+.leader-img img
+{
+width:75px;
+height:75px;
 }
 
 input
@@ -33,24 +43,50 @@ background-color:red;
 color:black
 }
 
+.leaderboard-player1
+{
+background-color:black;
+opacity:0.8;
+}
+
+.leaderboard-player-1
+{
+background-color:grey;
+opacity:0.8;
+}
+
+.leader-img
+{
+width:100px;
+}
+
+.leader-name
+{
+width:120px;
+padding:0px;
+}
+
+.leader-wins
+{
+width:100px;
+}
+
+.leader-games
+{
+width:100px;
+}
+
+.spacer
+{
+width:400px;
+opacity:0;
+}
+
 .playerHolder
 {
 	background-color:green;
    width:25px;
 	height:25px;
-}
-
-
-p, ol, ul {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
 }
 
 a {
