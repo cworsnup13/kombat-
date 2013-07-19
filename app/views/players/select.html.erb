@@ -10,29 +10,15 @@ Choose Player
 Choose Player
 </div>
 
-<div style="align: center;">
+<div style="width: 900px">
 <% @players.sort_by { |player| player.name }.each do |player| %>
   <div class="player">
-  <img src="<%= player.avatar %>" alt="<%= player.name %> avatar" />
+  <img style="width: 96px; height: 96px;" src="<%= player.avatar %>" alt="<%= player.name %> avatar" />
   <br />
   <%= player.name %>
   </div>
 <% end %> 
 </div>
-
-<table>
-<% @players.sort_by { |player| player.cumulative_wins }.each do |player| %>
-  <tr>
-    <td><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
-    <td><%= player.name %></td>
-    <td><%= player.cumulative_wins %></td>
-    <td><%= player.total_games %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
 <br />
 
