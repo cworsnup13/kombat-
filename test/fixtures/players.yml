@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  skill: 1
+  email: MyString
+  avatar: MyString
+  pin: 1
+  cumulative_wins: 
+  total_games: 
+  current_score: 
+
+two:
+  name: MyString
+  skill: 1
+  email: MyString
+  avatar: MyString
+  pin: 1
+  cumulative_wins: 
+  total_games: 
+  current_score: 

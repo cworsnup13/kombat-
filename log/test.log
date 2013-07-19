@@ -1,0 +1,69 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "players"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "players" ("name", "skill", "email", "avatar", "pin", "cumulative_wins", "total_games", "current_score", "created_at", "updated_at", "id") VALUES ('MyString', 1, 'MyString', 'MyString', 1, NULL, NULL, NULL, '2013-07-19 03:23:21', '2013-07-19 03:23:21', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "players" ("name", "skill", "email", "avatar", "pin", "cumulative_wins", "total_games", "current_score", "created_at", "updated_at", "id") VALUES ('MyString', 1, 'MyString', 'MyString', 1, NULL, NULL, NULL, '2013-07-19 03:23:21', '2013-07-19 03:23:21', 298486374)
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "players" 
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"avatar"=>"MyString", "cumulative_wins"=>nil, "current_score"=>nil, "email"=>"MyString", "name"=>"MyString", "pin"=>"1", "skill"=>"1", "total_games"=>nil}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "players" ("avatar", "created_at", "cumulative_wins", "current_score", "email", "name", "pin", "skill", "total_games", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar", "MyString"], ["created_at", Fri, 19 Jul 2013 03:23:21 UTC +00:00], ["cumulative_wins", nil], ["current_score", nil], ["email", "MyString"], ["name", "MyString"], ["pin", 1], ["skill", 1], ["total_games", nil], ["updated_at", Fri, 19 Jul 2013 03:23:21 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "players" 
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "players" 
+Processing by PlayersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mPlayer Load (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "players" WHERE "players"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/players
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered players/_form.html.erb (6.5ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" [0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PlayersController#new as HTML
+  Rendered players/_form.html.erb (2.8ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPlayer Load (0.0ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PlayersController#update as HTML
+  Parameters: {"player"=>{"avatar"=>"MyString", "cumulative_wins"=>nil, "current_score"=>nil, "email"=>"MyString", "name"=>"MyString", "pin"=>"1", "skill"=>"1", "total_games"=>nil}, "id"=>"980190962"}
+  [1m[35mPlayer Load (0.0ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/players/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m

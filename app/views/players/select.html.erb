@@ -1,0 +1,42 @@
+<div align="center">
+<h1>Table Tennis Kombat</h1>
+<h2>Leader Board</h2> 
+
+<div style=">
+</div>
+
+<div class="select_player_two">
+</div>
+
+
+
+<table>
+  <tr>
+    <th>Avatar</th>
+    <th>Name</th>
+    <th>Cumulative wins</th>
+    <th>Total games</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @players.sort_by { |player| player.cumulative_wins }.each do |player| %>
+  <tr>
+    <td><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
+    <td><%= player.name %></td>
+    <td><%= player.cumulative_wins %></td>
+    <td><%= player.total_games %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Player', new_player_path %>
+<%= link_to 'New Game', new_game_path %>
+
+</div>

@@ -1,0 +1,30 @@
+<div align="center">
+<h1>Table Tennis Kombat</h1>
+<h2>Leader Board</h2> 
+
+<table style=" width: 900px; ">
+  <tr>
+    <th>Avatar</th>
+    <th>Name</th>
+    <th>Cumulative wins</th>
+    <th>Total games</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr class="leaderboard-player" id="player-<%=player.id%>">
+    <td><img width="128" height="128" src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
+    <td><%= player.name%></td>
+    <td><%= player.cumulative_wins %></td>
+    <td><%= player.total_games %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Player', new_player_path, :id=>"newPlayerButton" %>
+
+</div>

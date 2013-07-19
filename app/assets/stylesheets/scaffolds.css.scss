@@ -1,0 +1,59 @@
+body {
+  background-color: #000000;
+  color: red;
+  
+  font-size: 13px;
+  line-height: 18px;
+}
+
+table
+{
+border: 1px solid #2f2130;
+}
+
+td
+{
+text-align:center;
+border: 1px solid #2f2130;
+}
+
+input
+{
+background-color: #2F2130;
+border: 0px;
+color:white;
+}
+
+#submitButton
+{
+background-color:red;
+color:black
+}
+
+.playerHolder
+{
+	background-color:green;
+   width:25px;
+	height:25px;
+}
+
+
+p, ol, ul {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: orange;
+  text-decoration:none;
+  font-size: 25px;
+}
+
+
