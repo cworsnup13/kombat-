@@ -1,25 +1,30 @@
 <div style="width: 900px;" align="center">
 <h1>FIGHT!</h1>
+<p id="versus"> VS.</p>
 
-<form method="post" action="/end_game">
+<form method="post" action="/end_game" id="endGameForm">
 <input type="hidden" id="player_one_id" name="player_one_id" value="<%= @player_one.id %>" />
 <input type="hidden" id="player_two_id" name="player_two_id" value="<%= @player_two.id %>" />
 
 
 <div style="float: left;">
 <img width="256" height="256" src="<%= @player_one.avatar %>" />
+<p style="font-size:30px;"><%=@player_one.name%></p>
 <br />
-Score: <input type="text" id="player_one_score" name="player_one_score"/>
+Final Score: <br>
+<input type="text" id="player_one_score" name="player_one_score" />
 </div>
 
 <div style="float: right;">
 <img width="256" height="256" src="<%= @player_two.avatar %>" />
+<p style="font-size:30px;"><%=@player_two.name%></p>
 <br />
-Score: <input type="text" id="player_two_score" name="player_two_score"/>
+Final Score: <br>
+<input type="text" id="player_two_score" name="player_two_score"/>
 </div>
 
 <div align="center">
-<input type="submit" value="END GAME" />
+<button type="button"  id="endGameButton">FINISH THEM!!</button>
 </div>
 
 </form>

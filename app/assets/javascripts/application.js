@@ -113,4 +113,19 @@ $("#newplayerbutton").click(function()
 window.location.href = "/players/new";
 });
 
+$("#endGameButton").click(function()
+{
+	if($("#player_one_score").val() == "")
+	{
+		alert("Enter score for player one!");
+		return;
+	}	
+	if($("#player_two_score").val() == "")
+	{
+		alert("Enter score for player two!");
+		return;
+	}	
+	document.getElementById("endGameForm").submit();
+});	
+
 });

@@ -33,10 +33,55 @@ border: 0px;
 color:white;
 }
 
+#versus
+{
+	position:absolute;
+	font-weight:bold;
+	font-size: 100px;
+	float: center;
+	left:375px;
+	top: 100px;
+}
+
+#player_one_score
+{
+height:40px;
+text-align:center;
+}
+
+#player_two_score
+{
+height:40px;
+text-align:center;
+}
+
 #submitButton
 {
 background-color:red;
 color:black
+}
+
+.Home-Buttons
+{
+width:20em;
+height:3em;
+color:red;
+}
+
+#endGameButton
+{
+width:20em;
+height:3em;
+color:red;
+position:relative;
+top:400px;
+}
+
+.Select-Buttons
+{
+width:20em;
+height:3em;
+color:red;
 }
 
 .leaderboard-player1
