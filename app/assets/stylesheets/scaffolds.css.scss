@@ -45,14 +45,22 @@ color:white;
 
 #player_one_score
 {
-height:40px;
+height:160px;
+width:200px;
 text-align:center;
+color:white;
+font-size:120px;
+background-color:grey;
 }
 
 #player_two_score
 {
-height:40px;
+height:160px;
+width:200px;
 text-align:center;
+color:white;
+font-size:120px;
+background-color:grey;	
 }
 
 #submitButton
@@ -144,20 +152,24 @@ opacity:0.2;
 
 #playerOneSelect
 {
-background-color:grey;
+background-color:blue;
 opacity:0.6;
 float:left;
 width:200px;
-height:250px;
+height:270px;
+color:white;
+border:2px solid black;
 }
 
  #playerTwoSelect
 {
-background-color:grey;
+background-color:red;
 opacity:0.6;
 float:right;
 width:200px;
-height:250px;
+height:270px;
+color:white;
+border:2px solid black;
 }
 
 #playerOneSelectImg, #playerTwoSelectImg

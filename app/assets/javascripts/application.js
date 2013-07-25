@@ -40,12 +40,16 @@ $("#playerOneSelect").click(function()
   
   activeOneSet = true;
   activeTwoSet = false;
+  $(this).css("border","2px solid yellow");
+  $("#playerTwoSelect").css("border","2px solid black");
 });
 
 $("#playerTwoSelect").click(function()
 {
   activeOneSet = false;
   activeTwoSet = true;
+  $(this).css("border","2px solid yellow");
+  $("#playerOneSelect").css("border","2px solid black");
 });
 
 $(".clickableSelect").click(function()
@@ -83,7 +87,7 @@ $(".clickableSelect").click(function()
 		selected2 = ident;	
 	}	
 });
-$("#goLeaderButton").click(function()
+$("goLeaderButton").click(function()
 {	
 	window.location.href = "/players";
 });
