@@ -66,15 +66,16 @@ class PlayersController < ApplicationController
 
  
     if @player_one.save && @player_two.save
-      respond_to do |format|
-        format.html { redirect_to "/winner/#{@winner}", notice: "#{Player.find(@winner).name} IS THE WINNER!" }
-      end
+		 redirect_to "/players"     
+		#respond_to do |format|
+        #format.html { redirect_to "/winner/#{@winner}", notice: "#{Player.find(@winner).name} IS THE WINNER!" }
+      #end
     else
       
     end 
 
   end
-
+helper_method :end_game
     
 
   # GET /players/1

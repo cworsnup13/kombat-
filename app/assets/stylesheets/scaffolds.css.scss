@@ -63,6 +63,52 @@ font-size:120px;
 background-color:grey;	
 }
 
+#game_player1_img
+{
+	width:256px;
+	height:256px;
+	position:absolute;
+	left:70px;
+}
+
+#game_player2_img
+{
+	width:256px;
+	height:256px;
+	position:absolute;
+	left:585px;
+}
+
+#game_player1_text
+{
+	position:absolute;
+	font-size:30px;
+	left:165px;
+	top:300px;
+}
+
+#game_player2_text
+{
+	position:absolute;
+	font-size:30px;
+	top:300px;
+	left:670px;
+}
+
+#scorecard1
+{
+	position:absolute;
+	top:375px;
+	left:100px;
+}
+
+#scorecard2
+{
+	position:absolute;
+	top:375px;
+	left:620px;
+}
+
 #submitButton
 {
 background-color:red;

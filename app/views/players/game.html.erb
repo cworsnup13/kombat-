@@ -7,18 +7,17 @@
 <input type="hidden" id="player_two_id" name="player_two_id" value="<%= @player_two.id %>" />
 
 
-<div style="float: left;">
-<img width="256" height="256" src="<%= @player_one.avatar %>" />
-<p style="font-size:30px;"><%=@player_one.name%></p>
-<br />
+<img id="game_player1_img" src="<%= @player_one.avatar %>" />
+<p id="game_player1_text"><%=@player_one.name%></p>
+<div id="scorecard1">
 Final Score: <br>
 <input type="text" id="player_one_score" name="player_one_score" />
 </div>
 
-<div style="float: right;">
-<img width="256" height="256" src="<%= @player_two.avatar %>" />
-<p style="font-size:30px;"><%=@player_two.name%></p>
-<br />
+
+<img id="game_player2_img" src="<%= @player_two.avatar %>" />
+<p id="game_player2_text"><%=@player_two.name%></p>
+<div id="scorecard2">
 Final Score: <br>
 <input type="text" id="player_two_score" name="player_two_score"/>
 </div>

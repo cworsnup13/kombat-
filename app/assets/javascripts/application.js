@@ -17,7 +17,14 @@
 $(document).ready(function()
 {
 //Click on Leaderboards to view Player   
-$(".leaderboard-player").click(function()
+$(".leaderboard-player1").click(function()
+{
+   var ident = this.id;
+   var index = ident.indexOf("-");
+   window.location.href = "/players/"+ident.substr(index+1);
+});
+
+$(".leaderboard-player-1").click(function()
 {
    var ident = this.id;
    var index = ident.indexOf("-");
@@ -109,12 +116,12 @@ $(".newClickable").click(function()
 
 $("#newgamebutton").click(function()
 {
-window.location.href = "/select";   
+	window.location.href = "/select";   
 });
 
 $("#newplayerbutton").click(function()
 {
-window.location.href = "/players/new";
+	window.location.href = "/players/new";
 });
 
 $("#endGameButton").click(function()
@@ -128,8 +135,46 @@ $("#endGameButton").click(function()
 	{
 		alert("Enter score for player two!");
 		return;
-	}	
-	document.getElementById("endGameForm").submit();
+	}
+	//document.getElementById("endGameForm").submit();	
+	if(parseInt($("#player_one_score").val()) > parseInt($("#player_two_score").val()))
+	{
+		winnerSmashLoser("#game_player1_","#game_player2_")
+	}
+	else
+	{
+		winnerSmashLoser("#game_player2_","#game_player1_")
+	}
 });	
 
 });
+
+function winnerSmashLoser(winner,loser)
+{
+	var winpos = $(winner+"img").position();
+	var lospos = $(loser+"img").position();
+	if(winpos.left>lospos.left)
+	{
+		$(winner+"img").animate({left:lospos.left+$(loser+"img").width()+"px"},100, function() 
+		{
+			$(loser+"img").animate({left:-$(loser+"img").width()+"px"},100);
+			$("h1").text("Winner!!");
+			window.setTimeout(function(){$("#endGameForm").submit();},10000); //automatic submit
+		});
+	}
+	else
+	{
+		$(winner+"img").animate({left:lospos.left-$(winner+"img").width()+"px"},100, function() 
+		{
+			$(loser+"img").animate({left:$(window).width()+"px"},100);
+			$("h1").text("Winner!!");
+			window.setTimeout(function(){$("#endGameForm").submit();},10000); //automatic submit
+		});
+	}
+	$("#endGameButton").text("Exit");
+	$("#endGameButton").unbind();
+	$("#endGameButton").click(function(){
+		window.location.href = "/players";
+	});
+}
+
