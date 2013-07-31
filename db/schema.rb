@@ -11,21 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719024143) do
+ActiveRecord::Schema.define(:version => 20130731004622) do
 
-  create_table "players", :force => true do |t|
+  create_table "Players", :force => true do |t|
     t.string   "name"
-    t.integer  "skill"
+    t.integer  "skill",           :default => 1
     t.string   "email"
-    t.string   "avatar"
+    t.string   "avatar",          :default => "http://localhost:3000/assets/default_avatar.png"
     t.integer  "pin"
-    t.integer  "cumulative_wins"
-    t.integer  "total_games"
-    t.integer  "current_score"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "cumulative_wins", :default => 0
+    t.integer  "total_games",     :default => 0
+    t.integer  "current_score",   :default => 0
+    t.datetime "created_at",                                                                     :null => false
+    t.datetime "updated_at",                                                                     :null => false
   end
 
-  add_index "players", ["skill"], :name => "index_players_on_skill"
+  create_table "games", :force => true do |t|
+    t.string   "player1"
+    t.string   "player2"
+    t.string   "score1"
+    t.string   "score2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
