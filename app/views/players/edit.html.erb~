@@ -9,9 +9,9 @@
 	<% end %>
 	<td>
 	<%if iterator <10 %>
-		<img style="width: 72px; height: 72px;" src="http://localhost:3000/assets/avatars/avatar0<%	=iterator%>.jpg" id="newSelect-" class="newClickable"/>
+		<img style="width: 72px; height: 72px;" src="http://localhost:3000/assets/avatars/avatar0<%=iterator%>.jpg" id="newSelect-" class="newClickable"/>
 	<%else%>
-		<img style="width: 72px; height: 72px;" src="http://localhost:3000/assets/avatars/avatar<%=iterator%>.jpg" id="newSelect-" class="newClickable"/>
+		<img style="width: 72px; height: 72px;" src="http://localhost:3000/assets/avatars/avatar<=iterator%>.jpg" id="newSelect-" class="newClickable"/>
 	<%end%>
 	<br />
 	</td>
@@ -25,11 +25,8 @@
 </table> 
 
 </div>
-<div class="spaceNew">
-<h1>New player</h1>
+
+<h1>Editing player</h1>
 
 <%= render 'form' %>
-<p><br></p>
 <button id="goLeaderButton" type="button" class="Select-Buttons goLeaderButton">Back To LeaderBoard</button>
-</div>
-

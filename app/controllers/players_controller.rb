@@ -43,6 +43,9 @@ class PlayersController < ApplicationController
     @player_two = Player.find(params[:player_two_id])
     @players = [@player_one, @player_two]
  
+	 puts "**********************************"
+	 puts ""
+	 puts "**********************************"
     def get_winner(player_one, player_two)
       if player_one.current_score > player_two.current_score
         player_one.id

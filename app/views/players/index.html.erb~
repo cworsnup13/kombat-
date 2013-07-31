@@ -1,30 +1,37 @@
 <div align="center">
 <h1>Table Tennis Kombat</h1>
 <h2>Leader Board</h2> 
-
+<div width="250"
+<span style="align: right;">
+<button type="button" id="newplayerbutton" class="Home-Buttons">New Player</button>
+<button type="button" id="newgamebutton" class="Home-Buttons">New Game - Select PLayers</button>
+</span>
+</div>
 <table style=" width: 900px; ">
   <tr>
-    <th>Avatar</th>
+    <th></th>
     <th>Name</th>
-    <th>Cumulative wins</th>
+<th></th>
+    <th>W-L</th>
     <th>Total games</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
+<%alt = -1%>
+<% @players.sort_by { |player1,player2| [player2.cumulative_wins <=> player1.cumulative_wins,player1.total_games<=> player2.total_games] }.each do |player| %>
+  <tr class="leaderboard-player<%=alt%>" id="player-<%=player.id%>">
 
-<% @players.each do |player| %>
-  <tr class="leaderboard-player" id="player-<%=player.id%>">
-    <td><img width="128" height="128" src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
-    <td><%= player.name%></td>
-    <td><%= player.cumulative_wins %></td>
-    <td><%= player.total_games %></td>
-  </tr>
+    <td class="leader-img"><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
+    <td class="leader-name"><%= player.name%></td>
+	 <td class="spacer"></td>
+    <td class="leader-wins"><%= player.cumulative_wins %>-<%=player.total_games - player.cumulative_wins%></td>
+    <td class="leader-games"><%= player.total_games %></td> 
+
+</tr>
+<% alt *= -1%>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Player', new_player_path, :id="newPlayerButton" %>
+
 
 </div>

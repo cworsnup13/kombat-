@@ -109,10 +109,21 @@ background-color:grey;
 	left:620px;
 }
 
+.clickableSelect
+{
+  width:80px;
+  height:80px;
+  padding: 0px;
+  margin: 0px 15px;
+}
+
 #submitButton
 {
 background-color:red;
-color:black
+color:black;
+height:3em;
+width:20em;
+border:2px solid black;
 }
 
 .Home-Buttons
@@ -204,7 +215,6 @@ float:left;
 width:200px;
 height:270px;
 color:white;
-border:2px solid black;
 }
 
  #playerTwoSelect
@@ -215,7 +225,6 @@ float:right;
 width:200px;
 height:270px;
 color:white;
-border:2px solid black;
 }
 
 #playerOneSelectImg, #playerTwoSelectImg

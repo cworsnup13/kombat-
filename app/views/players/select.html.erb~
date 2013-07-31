@@ -20,7 +20,7 @@
 <tr>
 <% end %>
 <td>
-<img src="<%= player.avatar %>" id="select-<%=player.name%>" alt="<%= player.name %> avatar" class="clickableSelect" name=<%=player.id%> />
+<img style="width: 96px; height: 96px;" src="<%= player.avatar %>" id="select-<%=player.name%>" alt="<%= player.name %> avatar" class="clickableSelect" name=<%=player.id%> />
   <br />
   <%= player.name %>
 </td>

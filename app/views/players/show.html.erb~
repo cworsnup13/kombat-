@@ -24,6 +24,6 @@
   <%= @player.total_games %>
 </p>
 <br />
-<button id="editPlayerButton" type="button" class="Select-Buttons" >Edit Player</button>
+<button id="editPlayerButton" type="button" class="Select-Buttons" onclick="editPlayer(@player);">Edit Player</button>
 <br /><br />
 <button id="goLeaderButton" type="button" class="Select-Buttons goLeaderButton">Back To LeaderBoard</button>

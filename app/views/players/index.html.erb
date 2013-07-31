@@ -1,7 +1,12 @@
 <div align="center">
 <h1>Table Tennis Kombat</h1>
 <h2>Leader Board</h2> 
-
+<div width="250"
+<span style="align: right;">
+<button type="button" id="newplayerbutton" class="Home-Buttons">New Player</button>
+<button type="button" id="newgamebutton" class="Home-Buttons">New Game - Select PLayers</button>
+</span>
+</div>
 <table style=" width: 900px; ">
   <tr>
     <th></th>
@@ -11,7 +16,7 @@
     <th>Total games</th>
   </tr>
 <%alt = -1%>
-<% @players.sort { |player1, player2| player2.cumulative_wins <=> player1.cumulative_wins}.each do |player| %>
+<% @players.sort_by { |player| [-player.cumulative_wins,player.total_games ] }.each do |player| %>
   <tr class="leaderboard-player<%=alt%>" id="player-<%=player.id%>">
 
     <td class="leader-img"><img src="<%= player.avatar %>" alt="<%= player.name %> avatar" /></td>
@@ -27,11 +32,6 @@
 
 <br />
 
-<div width="250"
-<span style="align: right;">
-<button type="button" id="newplayerbutton" class="Home-Buttons">New Player</button>
-<button type="button" id="newgamebutton" class="Home-Buttons">New Game - Select PLayers</button>
-</span>
-</div>
+
 
 </div>

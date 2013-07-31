@@ -48,7 +48,7 @@ $("#playerOneSelect").click(function()
   activeOneSet = true;
   activeTwoSet = false;
   $(this).css("border","2px solid yellow");
-  $("#playerTwoSelect").css("border","2px solid black");
+  $("#playerTwoSelect").css("border","0px");
 });
 
 $("#playerTwoSelect").click(function()
@@ -56,7 +56,7 @@ $("#playerTwoSelect").click(function()
   activeOneSet = false;
   activeTwoSet = true;
   $(this).css("border","2px solid yellow");
-  $("#playerOneSelect").css("border","2px solid black");
+  $("#playerOneSelect").css("border","0px");
 });
 
 $(".clickableSelect").click(function()
@@ -94,11 +94,20 @@ $(".clickableSelect").click(function()
 		selected2 = ident;	
 	}	
 });
-$("goLeaderButton").click(function()
+$("#goLeaderButton").click(function()
 {	
 	window.location.href = "/players";
 });
 
+$("#editPlayerButton").click(function()
+{	
+	window.location.href = window.location.href+"/edit";
+});
+
+$("#showPlayerButton").click(function()
+{	
+	window.location.href = window.location.href.substr(-5);
+});
 
 $("#goGameButton").click(function()
 {
@@ -153,6 +162,8 @@ function winnerSmashLoser(winner,loser)
 {
 	var winpos = $(winner+"img").position();
 	var lospos = $(loser+"img").position();
+	$("#player_one_score").attr("readonly","true");
+	$("#player_two_score").attr("readonly","true");
 	if(winpos.left>lospos.left)
 	{
 		$(winner+"img").animate({left:lospos.left+$(loser+"img").width()+"px"},100, function() 
@@ -173,8 +184,9 @@ function winnerSmashLoser(winner,loser)
 	}
 	$("#endGameButton").text("Exit");
 	$("#endGameButton").unbind();
-	$("#endGameButton").click(function(){
-		window.location.href = "/players";
+	$("#endGameButton").click(function()
+	{
+		$("#endGameForm").submit();		
 	});
 }
 

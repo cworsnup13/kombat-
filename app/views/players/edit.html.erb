@@ -1,6 +1,32 @@
+
+<div id="charcterSpace">
+<table id="choosePlayers">
+<%ctr = 0%>
+<%iterator=01%>
+<%30.times do%>
+<% if ctr==0 %>
+<tr>
+<% end %>
+<td>
+<%if iterator <10 %>
+<img style="width: 72px; height: 72px;" src="http://localhost:3000/assets/avatars/avatar0<%=iterator%>.jpg" id="newSelect-" class="newClickable"/>
+<%else%>
+<img style="width: 72px; height: 72px;" src="http://localhost:3000/assets/avatars/avatar<%=iterator%>.jpg" id="newSelect-" class="newClickable"/>
+<%end%>
+  <br />
+</td>
+<% ctr+=1 %>
+<%if ctr == 6 %>
+</tr>
+<%ctr = 0%>
+<%end%>
+<%iterator += 1%>
+<% end %>
+</table> 
+
+</div>
+
 <h1>Editing player</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @player %> |
 <button id="goLeaderButton" type="button" class="Select-Buttons goLeaderButton">Back To LeaderBoard</button>
