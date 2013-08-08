@@ -43,9 +43,6 @@ class PlayersController < ApplicationController
     @player_two = Player.find(params[:player_two_id])
     @players = [@player_one, @player_two]
  
-	 puts "**********************************"
-	 puts ""
-	 puts "**********************************"
     def get_winner(player_one, player_two)
       if player_one.current_score > player_two.current_score
         player_one.id
@@ -65,10 +62,17 @@ class PlayersController < ApplicationController
         player.cumulative_wins += 1
       end
     end
+	#Game Stuffs
+	 @game=Game.new
+	 @game.players1 = params[:player_one_id]
+	 @game.player2 = params[:player_two_id]
+	 @game.score1 = params[:player_one_score]
+	 @game.score2 = params[:player_two_score]
+
 
 
  
-    if @player_one.save && @player_two.save
+    if @player_one.save && @player_two.save && @game.save
 		 redirect_to "/players"     
 		#respond_to do |format|
         #format.html { redirect_to "/winner/#{@winner}", notice: "#{Player.find(@winner).name} IS THE WINNER!" }
@@ -85,7 +89,9 @@ helper_method :end_game
   # GET /players/1.json
   def show
     @player = Player.find(params[:id])
-
+	 @game = Game.all.select { |t| t.players1 == params[:id] || t.player2 == params[:id] }
+	 @game = @game.sort {|a,b| b<=>a}
+	 @game = @game.take(13)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }

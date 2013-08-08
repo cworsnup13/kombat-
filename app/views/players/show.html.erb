@@ -1,3 +1,25 @@
+<div id="recentGamesList">
+<h1>13 Most Recent Games</h1>
+<%@game.each do |g|%>
+<%@player1 = Player.find(g.players1)%>
+<%@player2 = Player.find(g.player2)%>
+<table>
+<tr>
+<td>
+   <img src="<%=@player1.avatar%>">
+	<p><%=@player1.name%></p>
+</td>
+<td><h2><%=g.score1%></h2></td>
+<td><h2><%=g.score2%></h2></td>
+<td>
+   <img src="<%=@player2.avatar%>">
+	<p><%=@player2.name%></p>
+</td>
+</tr>
+</table>
+<%end%>
+</div>
+<div id="showfloat">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,8 +37,8 @@
 </p>
 
 <p>
-  <b>Cumulative wins:</b>
-  <%= @player.cumulative_wins %>
+  <b>Record:</b>
+  <%= @player.cumulative_wins %>-<%=@player.total_games-@player.cumulative_wins%>
 </p>
 
 <p>
@@ -27,3 +49,5 @@
 <button id="editPlayerButton" type="button" class="Select-Buttons" >Edit Player</button>
 <br /><br />
 <button id="goLeaderButton" type="button" class="Select-Buttons goLeaderButton">Back To LeaderBoard</button>
+</div>
+

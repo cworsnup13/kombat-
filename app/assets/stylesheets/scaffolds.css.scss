@@ -1,3 +1,9 @@
+@font-face
+{
+	font-family:kombat;
+	src: url('http://localhost:3000/assets/mk1.ttf');
+}
+
 body {
   background-color: #000000;
   background-image:url('http://i35.photobucket.com/albums/d159/JohnnyCage221/Sprite%20Tutorial/SpriteBackground.png');
@@ -6,8 +12,9 @@ background-position:0px 0px;
 background-size:cover;
 background-attachment:fixed;
   color: red;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 18px;
+  font-family:kombat;
 }
 
 table
@@ -154,7 +161,7 @@ color:red;
 background-color:black;
 opacity:0.8;
 font-weight:bold;
-font-size:15px;
+font-size:20px;
 .spacer
 {
 opacity:0.0;
@@ -166,7 +173,7 @@ opacity:0.0;
 background-color:grey;
 opacity:0.8;
 font-weight:bold;
-font-size:15px;
+font-size:20px;
 .spacer
 {
 opacity:0.0;
@@ -205,6 +212,11 @@ opacity:0.2;
 	background-color:green;
    width:25px;
 	height:25px;
+}
+
+#recentGamesList
+{
+ float:right;
 }
 
 #playerOneSelect
@@ -285,6 +297,24 @@ a {
   color: orange;
   text-decoration:none;
   font-size: 25px;
+}
+
+#recentGamesList
+{
+	color:white;	
+	float:right;
+	background-color:grey;
+	h1{text-align:center;}	
+	img{width:75px;height:75px;margin:0px;padding:0px;}
+   p{margin:0px;padding:0px;}
+	h2{margin:20px 30px;padding:0px;}
+ 	table{border:2px solid black;width:400px;}
+}
+
+#showfloat
+{
+position:fixed;
+top:50px;
 }
 
 
