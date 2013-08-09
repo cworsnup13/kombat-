@@ -39,40 +39,79 @@ class PlayersController < ApplicationController
 
   # POST /end_game
   def end_game
-    @player_one = Player.find(params[:player_one_id])
-    @player_two = Player.find(params[:player_two_id])
-    @players = [@player_one, @player_two]
- 
-    def get_winner(player_one, player_two)
-      if player_one.current_score > player_two.current_score
-        player_one.id
-      elsif player_two.current_score > player_one.current_score
-        player_two.id
-      else -1
-      end
-    end
+    @player1 = Player.find(params[:player_one_id])
+    @player2 = Player.find(params[:player_two_id])
 
-    @player_one.current_score = params[:player_one_score] 
-    @player_two.current_score = params[:player_two_score]
-    @winner = get_winner(@player_one, @player_two)
-    @players.each do |player|
-      player.total_games += 1
-      player.current_score = 0
-      if @winner == player.id
-        player.cumulative_wins += 1
-      end
-    end
-	#Game Stuffs
+    def get_winner_games
+      games = Array.new
+      iter = 1
+      if params[:player_one_score1] != ""
+      @player1.total_games += 1
+      @player1.current_score = 0
+      @player2.total_games += 1
+      @player2.current_score = 0
+	if params[:player_one_score1].to_i > params[:player_two_score1].to_i
+        @player1.cumulative_wins += 1
+	games.push(@player1)
+	else
+        @player2.cumulative_wins += 1
+	games.push(@player2)
+	end
 	 @game=Game.new
 	 @game.players1 = params[:player_one_id]
 	 @game.player2 = params[:player_two_id]
-	 @game.score1 = params[:player_one_score]
-	 @game.score2 = params[:player_two_score]
+	 @game.score1 = params[:player_one_score1]
+	 @game.score2 = params[:player_two_score1]
+	 @game.save
+      end
+      if params[:player_one_score2] != ""
+      @player1.total_games += 1
+      @player1.current_score = 0
+      @player2.total_games += 1
+      @player2.current_score = 0
+	if params[:player_one_score2] > params[:player_two_score2]
+        @player1.cumulative_wins += 1
+	games.push(@player1)
+	else
+        @player2.cumulative_wins += 1
+	games.push(@player2)
+	end
+	 @game=Game.new
+	 @game.players1 = params[:player_one_id]
+	 @game.player2 = params[:player_two_id]
+	 @game.score1 = params[:player_one_score2]
+	 @game.score2 = params[:player_two_score2]
+	 @game.save
+      end
+      if params[:player_one_score3] != ""
+      @player1.total_games += 1
+      @player1.current_score = 0
+      @player2.total_games += 1
+      @player2.current_score = 0
+	if params[:player_one_score3] > params[:player_two_score3]
+        @player1.cumulative_wins += 1
+	games.push(@player1)
+	else
+        @player2.cumulative_wins += 1
+	games.push(@player2)
+	end
+	 @game=Game.new
+	 @game.players1 = params[:player_one_id]
+	 @game.player2 = params[:player_two_id]
+	 @game.score1 = params[:player_one_score3]
+	 @game.score2 = params[:player_two_score3]
+	 @game.save
+      end
+      if games.count(@player1) > games.count(@player2)
+	return @player1
+      else 
+	return @player2
+      end
+    end
 
 
-
- 
-    if @player_one.save && @player_two.save && @game.save
+     get_winner_games	 
+    if @player1.save && @player2.save 
 		 redirect_to "/players"     
 		#respond_to do |format|
         #format.html { redirect_to "/winner/#{@winner}", notice: "#{Player.find(@winner).name} IS THE WINNER!" }

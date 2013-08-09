@@ -133,20 +133,44 @@ $("#newplayerbutton").click(function()
 	window.location.href = "/players/new";
 });
 
+
 $("#endGameButton").click(function()
 {
-	if($("#player_one_score").val() == "")
+	if($("#player_one_score1").val() == "")
 	{
 		alert("Enter score for player one!");
 		return;
 	}	
-	if($("#player_two_score").val() == "")
+	if($("#player_two_score1").val() == "")
 	{
 		alert("Enter score for player two!");
 		return;
 	}
 	//document.getElementById("endGameForm").submit();	
-	if(parseInt($("#player_one_score").val()) > parseInt($("#player_two_score").val()))
+	var playeronewins = 0;
+	var playertwowins = 0;	
+	if ($("#player_one_score1").val() != "")
+		{
+			if(parseInt($("#player_one_score1").val()) > parseInt($("#player_two_score1").val()))
+				playeronewins++;
+			else
+				playertwowins++;
+		}
+	if ($("#player_one_score2").val() != "")
+		{
+			if(parseInt($("#player_one_score2").val()) > parseInt($("#player_two_score2").val()))
+				playeronewins++;
+			else
+				playertwowins++;
+		}
+	if ($("#player_one_score3").val() != "")
+		{
+			if(parseInt($("#player_one_score3").val()) > parseInt($("#player_two_score3").val()))
+				playeronewins++;
+			else
+				playertwowins++;
+		}
+	if(playeronewins > playertwowins)
 	{
 		winnerSmashLoser("#game_player1_","#game_player2_")
 	}
@@ -162,8 +186,12 @@ function winnerSmashLoser(winner,loser)
 {
 	var winpos = $(winner+"img").position();
 	var lospos = $(loser+"img").position();
-	$("#player_one_score").attr("readonly","true");
-	$("#player_two_score").attr("readonly","true");
+	$("#player_one_score1").attr("readonly","true");
+	$("#player_two_score1").attr("readonly","true");
+	$("#player_one_score2").attr("readonly","true");
+	$("#player_two_score2").attr("readonly","true");
+	$("#player_one_score3").attr("readonly","true");
+	$("#player_two_score3").attr("readonly","true");
 	if(winpos.left>lospos.left)
 	{
 		$(winner+"img").animate({left:lospos.left+$(loser+"img").width()+"px"},100, function() 

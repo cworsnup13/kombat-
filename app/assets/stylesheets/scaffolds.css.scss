@@ -50,25 +50,7 @@ color:white;
 	top: 100px;
 }
 
-#player_one_score
-{
-height:160px;
-width:200px;
-text-align:center;
-color:white;
-font-size:120px;
-background-color:grey;
-}
 
-#player_two_score
-{
-height:160px;
-width:200px;
-text-align:center;
-color:white;
-font-size:120px;
-background-color:grey;	
-}
 
 #game_player1_img
 {
@@ -104,16 +86,44 @@ background-color:grey;
 
 #scorecard1
 {
+	ul
+	{
+		list-style-type:none;
+	}
 	position:absolute;
 	top:375px;
-	left:100px;
+	left:60px;	
+   input
+	{
+		height:160px;
+		width:200px;
+		text-align:center;
+		color:white;
+		font-size:120px;
+		background-color:grey;
+		margin: 5px 0px;
+	}
 }
 
 #scorecard2
 {
+	ul
+	{
+		list-style-type:none;
+	}
 	position:absolute;
 	top:375px;
-	left:620px;
+	left:590px;
+	input
+	{
+		height:160px;
+		width:200px;
+		text-align:center;
+		color:white;
+		font-size:120px;
+		background-color:grey;
+		margin: 5px 0px;
+	}	
 }
 
 .clickableSelect
@@ -140,13 +150,17 @@ height:3em;
 color:red;
 }
 
+#finish
+{
+position:relative;
+top:400px;
+}
+
 #endGameButton
 {
 width:20em;
 height:3em;
 color:red;
-position:relative;
-top:400px;
 }
 
 .Select-Buttons
