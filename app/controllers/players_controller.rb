@@ -69,7 +69,7 @@ class PlayersController < ApplicationController
       @player1.current_score = 0
       @player2.total_games += 1
       @player2.current_score = 0
-	if params[:player_one_score2] > params[:player_two_score2]
+	if params[:player_one_score2].to_i > params[:player_two_score2].to_i
         @player1.cumulative_wins += 1
 	games.push(@player1)
 	else
@@ -88,7 +88,7 @@ class PlayersController < ApplicationController
       @player1.current_score = 0
       @player2.total_games += 1
       @player2.current_score = 0
-	if params[:player_one_score3] > params[:player_two_score3]
+	if params[:player_one_score3].to_i > params[:player_two_score3].to_i
         @player1.cumulative_wins += 1
 	games.push(@player1)
 	else
@@ -116,12 +116,9 @@ class PlayersController < ApplicationController
 		#respond_to do |format|
         #format.html { redirect_to "/winner/#{@winner}", notice: "#{Player.find(@winner).name} IS THE WINNER!" }
       #end
-    else
-      
     end 
 
   end
-helper_method :end_game
     
 
   # GET /players/1
